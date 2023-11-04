@@ -163,21 +163,21 @@ function getAllProducts() {
              productCell.textContent = product.id_categorie;
         
              const category = document.createElement("td");
-             category.textContent = product.designation;
+             category.textContent = product.designation_c;
 
 
              // Create edit and delete buttons
              const editCell = document.createElement("td");
              const editButton = document.createElement("button");
              editButton.textContent = "Edit";
-             editButton.addEventListener("click",()=>editProduct( product.id_categorie, product.designation));
+             editButton.addEventListener("click",()=>editProduct( product.id_categorie, product.designation_c));
              editCell.appendChild(editButton);
              
 
              const deleteCell = document.createElement("td");
              const deleteButton = document.createElement("button");
              deleteButton.textContent = "Delete";
-             deleteButton.addEventListener("click",()=>deleteProduct( product.id_categorie, product.designation));
+             deleteButton.addEventListener("click",()=>deleteProduct( product.id_categorie, product.designation_c));
              deleteCell.appendChild(deleteButton);
 
 
@@ -221,7 +221,7 @@ function CloseEditForm() {
     ajoutForm.style.display = 'block';
 }
 
-const editProduct = (id , designation) => {
+const editProduct = (id , designation_c) => {
 
     //document.getElementById("editButton").addEventListener("click", () => toggleEditForm());
 
@@ -237,7 +237,7 @@ const editProduct = (id , designation) => {
 
     const infoLabel = document.getElementById("id_m");
     $id_categorie = id ;
-    $name = designation ;
+    $name = designation_c ;
     console.log($id_categorie)
     console.log($name)
     document.getElementById('mdesignation').value = $name;

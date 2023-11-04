@@ -10,7 +10,7 @@
             $designation = $_GET['designation'];
             require_once('../login/connexion.php');
         
-            $sql = "SELECT * FROM  categorie where designation = :designation ";
+            $sql = "SELECT * FROM  categorie where designation_c = :designation ";
             
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':designation', $designation);

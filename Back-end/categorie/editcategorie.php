@@ -13,7 +13,7 @@
             $id_categorie = $data->id_categorie;
             $designation = $data->designation;
 
-                $sql = " UPDATE categorie SET designation= :designation where id_categorie = :id_categorie ";
+                $sql = " UPDATE categorie SET designation_c= :designation where id_categorie = :id_categorie ";
                
                 $stmt = $pdo->prepare($sql);
                 $stmt->bindParam(':id_categorie', $id_categorie);

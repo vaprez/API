@@ -12,7 +12,7 @@
 
             $designation = $data->designation;
 
-            $sql= "SELECT * FROM categorie WHERE designation = :designation";
+            $sql= "SELECT * FROM categorie WHERE designation_c = :designation";
 
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':designation', $designation);

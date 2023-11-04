@@ -258,7 +258,7 @@ async function  initialiserListeDeroulante() {
             data.forEach(element => {
                 const option = document.createElement('option');
                 option.value = element.id_categorie;
-                option.textContent = element.designation;
+                option.textContent = element.designation_c;
                 categoriesDropdown.appendChild(option);
                 
             });
@@ -268,7 +268,7 @@ async function  initialiserListeDeroulante() {
                 categoriesDropdown.value = data[0].id_categorie;
                 selectedValue_r = data[0].id_categorie; 
                 console.log(selectedValue_r)  
-                return   data[0].id_categorie
+                getAllProducts(selectedValue_r)
             }
             
         })
@@ -278,6 +278,7 @@ async function  initialiserListeDeroulante() {
         const selectedValue_r = this.value;
         console.log('La valeur sélectionnée est : ', selectedValue_r);
         //categorie_choix_r = selectedValue_r;
+        getAllProducts(selectedValue_r)
         
     });  
 }
@@ -305,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
             data.forEach(element => {
                 const option = document.createElement('option');
                 option.value = element.id_categorie; // Supposons que votre table a une colonne 'id'
-                option.textContent = element.designation; // Remplacez 'nom' par le nom de la colonne contenant les éléments
+                option.textContent = element.designation_c; // Remplacez 'nom' par le nom de la colonne contenant les éléments
 
                 selectElement.appendChild(option);
             });
@@ -417,10 +418,14 @@ function recherche(btnType) {
 
 
 
-function getAllProducts() {
+function getAllProducts(id_cat) {
     const tableBody = document.getElementById("table_p");
-    categorie = categorie_choix_r
+    categorie = id_cat
     console.log(categorie)
+    while (tableBody.firstChild) {
+      tableBody.removeChild(tableBody.firstChild);
+  }
+
     fetch(`http://localhost/JavaScript/Back-end/produit/getallproduit.php?categorie=${categorie}`, {
                 method: "GET",
                 headers: {
@@ -493,7 +498,7 @@ function getAllProducts() {
   }
   
   window.addEventListener("load", initialiserListeDeroulante);
-  window.addEventListener("load", getAllProducts);
+ // window.addEventListener("load", getAllProducts);
 
 
 
