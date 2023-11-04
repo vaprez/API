@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page in with javascript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/65ce4a017e.js" crossorigin="anonymous"></script>
+   
+</head>
+<body>
+    <!-- <> -->
+
+    <div class="container">
+        <div class="form-box1">
+            <div class="btn-field1">
+                <a href="login.html" class="styled-button">Connexion</a>
+                <a href="inscription.html" class="styled-button">Inscription</a>
+            </div>
+        </div>
+        <div class="form-box">
+            <h1 id="title">Connexion</h1>
+            <form method="POST" id ="form" >
+                <div class="input-group">
+    
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope" ></i>
+                        <input type="email" id="email" name="email" placeholder = "example@hotmail.com">
+                    </div>
+                    <div class="input-field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password"  id="password" name="password" placeholder = "#########">
+                    </div>
+                    <p id="forget"> </p>
+                </div>
+                <div class="btn-field">
+                    <button id = "connect" onclick="Connexion('connect')"> Valider</button>
+                    <button type="button" onclick="ClearForm()" class="disable"> Annuler</button>
+                </div>
+                <p id="ErrorHandling"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src ="login.js"></script>
+    
+</body>
+</html>
